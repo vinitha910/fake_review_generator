@@ -29,8 +29,8 @@ processed_data = [
 class ReviewDataReader:
     def __init__(self, processed_review_file):
         self.file_name = processed_review_file
-        self.file = open('processed_data/' + processed_review_file, 'r')
-        self.line = self.file.readline()
+        self.file = open(processed_review_file, 'r')
+        self.line = self.file.readline().strip()
 
     def hasNext(self):
         return self.line != ''
@@ -49,7 +49,7 @@ def main():
     message_num = 3
     for file_name in processed_data:
         category = file_name.replace('.csv', '')
-        reader = ReviewDataReader(file_name)
+        reader = ReviewDataReader("processed_data/{:s}".format(file_name))
         count = 0
         print("Category: {:s}".format(category))
         while reader.hasNext() and count < message_num:
