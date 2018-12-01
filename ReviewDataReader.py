@@ -58,5 +58,7 @@ def main():
             count += 1
         print('')
 
+        reader.close()
+
 if __name__ == '__main__':
     main()
